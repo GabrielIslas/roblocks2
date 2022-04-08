@@ -1,24 +1,17 @@
 #include <stdio.h>
 
-int sort (){
-   int arr[20];
-   int i, j, a, n;
-   printf("Enter number of elements in an array\n");
-   scanf("%d", &n);
-   printf("Enter the elements\n");
-   for (i = 0; i < n; ++i)
-      scanf("%d", &arr[i]);
-   for (i = 0; i < n; ++i){
-      for (j = i + 1; j < n; ++j){
-         if (arr[i] > arr[j]){
-            a = arr[i];
-            arr[i] = arr[j];
-            arr[j] = a;
+void sort(int arr[], int len){
+   for (int i = 0; i < len - 1; ++i){
+      for (int j = 0; j < len - i - 1; ++j){
+         if (arr[j] > arr[j+1]){
+            int aux = arr[j];
+            arr[j] = arr[j+1];
+            arr[j+1] = aux;
          }
       }
    }
-   printf("The numbers in ascending order is:\n");
-   for (i = 0; i < n; ++i){
+   printf("The numbers in ascending order are:\n");
+   for (int i = 0; i < len; ++i){
       printf("%d\n", arr[i]);
    }
 }
